@@ -17,6 +17,8 @@ import { OptimizelyOneProvider, PageActivator } from "@remkoj/optimizely-one-nex
 import GoogleAnalytics from '@/components/integrations/google-analytics'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
+import OptimizelyPreviewScript from "@/components/OptimizelyPreviewScript"
+
 /* eslint-disable @next/next/no-css-tags */
 
 const figtree = Figtree({ subsets: ["latin"] });
@@ -94,6 +96,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
             </div>
             <OptimizelyOneGadget />
           </OptimizelyOneProvider>
+		  
+		  <OptimizelyPreviewScript />
+		  
           <Scripts.Footer />
           { enableGoogleAnalytics && <GoogleAnalytics measurementId={ ga_id } /> }
           <SpeedInsights />
@@ -102,3 +107,4 @@ export default function RootLayout({ children }: RootLayoutProps) {
     </html>
   );
 }
+
